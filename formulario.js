@@ -2,7 +2,7 @@ var formulario = document.querySelector("#form")
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault(); //Agregue Default
   
   var n = formulario.elements[0]
   var e = formulario.elements[1]
@@ -55,8 +55,9 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 var lista = document.getElementById("lista-de-invitados")
 
 var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+elementoLista.classList.add("elemento-lista") // cambie added por add
 lista.appendChild(elementoLista)
+
 
 var spanNombre = document.createElement("span")
 var inputNombre = document.createElement("input")
@@ -71,8 +72,10 @@ function crearElemento(descripcion, valor) {
 var spanNombre = document.createElement("span")
 var inputNombre = document.createElement("input")
 var espacio = document.createElement("br")
+
 spanNombre.textContent = descripcion + ": "
 inputNombre.value = valor 
+
 elementoLista.appendChild(spanNombre)
 elementoLista.appendChild(inputNombre)
 elementoLista.appendChild(espacio)
@@ -92,6 +95,7 @@ elementoLista.appendChild(botonBorrar);
 
  botonBorrar.onclick = function() {
 // this.parentNode.style.display = 'none';
-botonBorrar.parentNode.remove()
+this.parentNode.remove(); //Agregue this.
+
   }
 }
